@@ -8,9 +8,11 @@ export function Comment({ content, onDeleteComment }) {
   function handleDeleteComment() {
     onDeleteComment(content);
   }
-
+//Sempre que formos atualizar uma informação e essa informação depende do valor anterior dela mesma, devemos utilizar esse padrão abaixo para fazer a atualização de valor.
   function handleLikeComment() {
-    setLikeCount(likeCount + 1);
+    setLikeCount((state) => {
+      return state + 1
+    });
   }
 
   return (
@@ -22,7 +24,7 @@ export function Comment({ content, onDeleteComment }) {
             <div className={styles.authorAndTime}>
               <strong>Nathan Barbosa</strong>
               <time
-                datetime="11 de Maio às 08:13h"
+                title="11 de Maio às 08:13h"
                 dateTime="2024-01-28 08:09:30"
               >
                 Cerca de 1h atrás
